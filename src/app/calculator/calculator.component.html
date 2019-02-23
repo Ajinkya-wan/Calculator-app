@@ -1,0 +1,88 @@
+
+  <div class="row">
+    <div class="col-12 text-center">
+      <h2>Welcome to Ajinkya calculator</h2>
+    </div>
+  </div>
+  <div class="row">
+  <div class="col-lg">
+    <form>
+      <div class="row">
+        <div class="col-6 text-center">
+          <p class="text-center"><label for="start">Start Date</label></p>
+          <div>
+            <input type="date" [(ngModel)]="startDate" id="start" [ngModelOptions]="{standalone: true}">
+          </div>
+        </div>
+        <div class="col-6 text-center">
+          <p class="text-center"><label for="end"> End Date</label></p>
+
+          <input type="date" [(ngModel)]="endDate" id="end" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+
+        <div class="col-12 mt-2 text-center">
+          <button class="btn btn-primary" (click)="_getHistory()">Get History</button>
+        </div>
+
+
+    </form>
+
+    <div class="row mt-2">
+      <div class="col-xs-12 col-sm-4 mt-2 text-center">
+        <button class="btn btn-primary" (click)="_getThisMonthHistory()">This Month History</button>
+      </div>
+
+      <div class="col-xs-12 col-sm-4 mt-2text-center">
+        <button class="btn btn-primary" (click)="_getThisWeekHistory()">This Week History</button>
+      </div>
+
+      <div class="col-xs-12 col-sm-4 mt-2 text-center">
+        <button class="btn btn-primary" (click)="_getHistoryOfCurrentDay()">Today's History</button>
+      </div>
+
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-12 table-div">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th></th>
+              <th>OPERATION</th>
+              <th>ANSWER</th>
+              <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let operation of _operations">
+              <td>#</td>
+              <td>
+                <span>{{operation.question}}</span>
+              </td>
+              <td>
+                <span>{{operation.answer}}</span>
+              </td>
+              <td>
+                {{operation.createdAt |date}}
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="col-lg">
+    <div class="calculator-wrapper">
+      <display [value]="calculator.currentValue || calculator.leftOperand"></display>
+      <key *ngFor="let key of keys" [key]="key" (hitKey)="handleKeyAction($event)"></key>
+    </div>
+  </div>
+</div>
