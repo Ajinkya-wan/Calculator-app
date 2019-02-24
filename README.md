@@ -3,29 +3,35 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.3.
 
-## Development server
+# Description
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1.All performed operations are saved 
+2.Check history to get reports
 
-## Code scaffolding
+# Demo
+https://calculator-wbapp.herokuapp.com/
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Api-docs
+https://cal-back.herokuapp.com/api-docs/
 
-## Build
 
+# Build
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-##Prerequisites
+# Prerequisites
 
 angular-cli
+
 nodejs
+
 npm
  
-##Deployment  
-
+# local Setup
 git clone <REPO_NAME>
-npm install --save
-ng build
-npm start / node server.js
 
+npm install --save
+
+ng build
+
+ng serve
 
