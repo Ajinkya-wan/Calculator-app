@@ -17,6 +17,7 @@ export class CalculatorComponent {
   _operations : [] =[];
   startDate:any="2019-01-01";
   endDate:any="2019-12-31";
+  isData:boolean=true
 
 
 
@@ -37,7 +38,8 @@ export class CalculatorComponent {
     this.oss._operationHistory(this.startDate , this.endDate).subscribe((data:any)=>{
       if(data) {
         this._operations = data['result']['list']
-        console.log(this._operations, "History")
+        this._operations.length>0 ? this.isData=true : this.isData =false
+        console.log(this._operations, "History" , this.isData)
       }
     })
   }
@@ -51,7 +53,8 @@ export class CalculatorComponent {
     this.oss._operationHistory(firstDay , lastDay).subscribe((data:any)=>{
       if(data) {
         this._operations = data['result']['list']
-        console.log(this._operations, "This month History")
+        this._operations.length>0 ? this.isData=true : this.isData =false
+        console.log(this._operations, "This month History", this.isData)
       }
     })
   }
@@ -61,13 +64,14 @@ export class CalculatorComponent {
     const first = curr.getDate() - curr.getDay();
     const last = first + 6;
 
-    const firstday = new Date(curr.setDate(first))
-    const lastday = new Date(curr.setDate(last))
+    const firstday = new Date(curr.setDate(first)).setHours(0,0,0,0)
+    const lastday = new Date(curr.setDate(last)).setHours(23,59,59,999)
 
     this.oss._operationHistory(firstday , lastday).subscribe((data:any)=>{
       if(data) {
         this._operations = data['result']['list']
-        console.log(this._operations, "This Week History")
+        this._operations.length>0 ? this.isData=true : this.isData =false
+        console.log(this._operations, "This Week History" , this.isData)
       }
     })
   }
@@ -83,6 +87,7 @@ export class CalculatorComponent {
     this.oss._operationHistory(start , end).subscribe((data:any)=>{
       if(data) {
         this._operations = data['result']['list']
+        this._operations.length>0 ? this.isData=true : this.isData =false
         console.log(this._operations, "Todayss History")
       }
     })

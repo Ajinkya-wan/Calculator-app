@@ -21,7 +21,7 @@ angular-cli
 nodejs
 npm
  
-##Deployment
+##Deployment  
 
 git clone <REPO_NAME>
 npm install --save

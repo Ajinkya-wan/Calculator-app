@@ -44,7 +44,7 @@
     </div>
 
     <div class="row mt-3">
-      <div class="col-12 table-div">
+      <div class="col-12 table-div" *ngIf="_operations.length>0">
         <div class="table-responsive">
           <table class="table table-striped">
             <thead>
@@ -67,10 +67,15 @@
               <td>
                 {{operation.createdAt |date}}
               </td>
+
+
             </tr>
             </tbody>
           </table>
         </div>
+      </div>
+      <div class="col-12" *ngIf="!isData">
+        <h5>No Data Found</h5>
       </div>
     </div>
 
